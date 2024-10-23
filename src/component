@@ -1,0 +1,25 @@
+import React, { useState } from 'react';
+
+// Define the props type for the component
+type CounterProps = {
+  initialCount?: number; // Optional prop with a default value
+};
+
+const Counter: React.FC<CounterProps> = ({ initialCount = 0 }) => {
+  // State to store the current count
+  const [count, setCount] = useState<number>(initialCount);
+
+  // Handlers for incrementing and decrementing the count
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>
+  );
+};
+
+export default Counter;
